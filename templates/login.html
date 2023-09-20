@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Login here</div>
+        <div class="content">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Username</span>
+                        <input type="text" name="username" placeholder="Enter the username" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="password" name="password" placeholder="Enter your password" required>
+                    </div>
+
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Login">
+                </div>
+
+                <div>
+                    <p style="font-weight: bold;">Don't have an account :</p>
+                    <a href="{% url 'credentials:signup' %}" role="button" class="aim btn btn-sucess"
+                        style="text-decoration: none;">Register</a>
+                    <style>
+                        a:hover {
+                            transform: scale(1.05);
+                        }
+                    </style>
+                </div>
+            </form>
+
+
+            {% for msg in messages %}
+            {{msg}}
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+.space{
+    float: left;
+    font-family: 'Inter', sans-serif;
+}
+
+.space label{
+    display: block;
+}
+
+select{
+    border: 1px solid #555;
+    height: 40px;
+    width: 200px;
+    padding: 0 15px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+

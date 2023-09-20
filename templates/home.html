@@ -1,0 +1,173 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="formbold-main-wrapper">
+
+  <div class="formbold-form-wrapper">
+    <div style="position: relative;">
+      <h1 style="text-align: center; top: -40px; color: rgb(62, 62, 221); font-size: 50px;">Open an account
+        <hr>
+      </h1>
+    </div>
+    <img src="{% static 'images/federal-banner.png' %}" style="width: 1905px; height: 300px;" class="mb-5">
+
+    <h1 style="text-align: center; color:orangered;">Fill the form</h1>
+    <hr>
+    <form action="{% url 'bankapp:forms' %}" method="post">
+      {% csrf_token %}
+
+      <div class="" style="margin-bottom: 25px;">
+        <label for="" class="input" style="font-weight: bolder;">Name :</label><br>
+        <input type="text" name="name" id="name" class="rounded" placeholder="     Enter your name"
+          style="width: 490px; height: 41px; border: 1px solid black;">
+      </div>
+
+
+      <div class="" style="margin-bottom: 25px; display: inline-block; margin-right: 5px;">
+        <label for="" style="display: inline-block; font-weight: bolder;">Dob :</label><br>
+        <input type="date" name="dob" id="dateofbirth" class="rounded"
+          style="width: 240px; height: 41px; border: 1px solid black;">
+      </div>
+
+
+      <div class="" style="margin-bottom: 25px; display: inline-block;">
+        <label for="" style="display: inline-block; font-weight: bolder;">Age :</label><br>
+        <input type="text" name="age" id="age" class="rounded" placeholder="    Enter your age"
+          style="width: 240px; height: 41px; border: 1px solid black;">
+      </div>
+
+
+      <div class="">
+        <label for="" style="margin: bottom 25px; font-weight: bolder;">Email :</label><br>
+        <input type="email" name="email" id="email" class="rounded" placeholder="   Enter your email"
+          style="width: 490px; height: 41px; border: 1px solid black;">
+      </div>
+
+
+      <div class="" style="margin-top: 25px; display: inline-block; margin-right: 5px;">
+        <label for="" style="display: inline-block; font-weight: bolder;">Phone number :</label><br>
+        <input type="text" name="phone_number" class="rounded" id="phone_number" placeholder="   Enter your phone number"
+          style="width: 240px; height: 41px; border: 1px solid black;">
+      </div>
+
+      <div style="margin-top: 20px; display: inline-block;">
+        <label for="" style="font-weight: bolder;">Gender :</label><br>
+        <select name="gender" id="" class="rounded" id="gender"
+          style="display: inline-block; width: 240px; font-family: 'Inter', sans-serif; font-size: 14px; border: 1px solid black;">
+          <option value="">--Select--</option>
+          <option value="">Male</option>
+          <option value="">Female</option>
+        </select>
+      </div>
+
+
+      <div class="" style="margin-bottom: 25px; display: inline-block;"><br>
+        <label for="" style="display: inline-block; font-weight: bolder;">Address :</label><br>
+        <input type="text" name="address" id="address" placeholder="   Enter your address" class="rounded"
+          style="width: 490px; height: 41px; border: 1px solid black;">
+      </div>
+
+
+
+
+
+      <!-- dropdown starts here -->
+
+      <div class="formbold-input-flex">
+        <div class="space" style="margin-bottom: 25px; display: inline-block; margin-right: 5px;">
+          <label for="common" style="display: inline-block; font-weight: bolder; font-size: 16px;">District :</label>
+          <select name="common" id="district" class="rounded"
+            style="width: 249px; height: 41px; border: 1px solid black;" onchange=Changedropdownvalue(this.value)>
+            <option value="">--Select District--</option>
+            <option value="alappuzha">Alappuzha</option>
+            <option value="kollam">Kollam</option>
+            <option value="eranakulam">Eranakulam</option>
+            <option value="wayanad">Wayanad</option>
+            <option value="thrissur">Thrissur</option>
+          </select>
+        </div>
+
+        <div class="space" style="margin-bottom: 25px; display: inline-block; margin-right: 5px;">
+          <label for="category" style="display: inline-block; font-weight: bolder; font-size: 16px;">Branch :</label>
+          <select name="category" id="category" class="rounded"
+            style="width: 220px; height: 41px; border: 1px solid black;"></select>
+        </div>
+
+      </div>
+
+
+      <!-- another block -->
+
+
+      <div class="formbold-input-flex">
+        <div class="select-box" style="margin-bottom: 25px; display: inline-block; margin-right: 5px;">
+          <label for="" style="display: inline-block; font-weight: bolder; font-size: 16px;">Account Type :</label>
+          <select name="account" id="account" class="rounded" style="width: 249px; height: 41px; border: 1px solid black;">
+            <option value="">Savings Account</option>
+            <option value="">Current Account</option>
+            <option value="">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="check">
+        <label for="" style="display: inline-block; font-weight: bolder; font-size: 16px;">Materials Provide :</label>
+        <br>
+        <input type="checkbox" name="debit_card" id="debit_card" value="debit_card"><label for="debit_card"
+          style="font-style: italic; font-weight: bold;">Debit Card</label>
+        <input type="checkbox" name="credit_card" id="credit_card" value="credit_card"><label for="credit_card"
+          style="font-style: italic; font-weight: bold;">Credit card</label>
+        <input type="checkbox" name="cheque_book" id="cheque_book" value="cheque_book"><label for="cheque_book"
+          style="font-style: italic; font-weight: bold;">Cheque book</label>
+      </div>
+      <br>
+
+      <!-- submit logout -->
+      <div class="">
+        <button type="submit" class="btn btn-light rounded-pill fw-bolder mb-1">Submit</button>
+        <a href="{% url 'bankapp:home' %}" type="button" class="btn btn-light rounded-pill fw-bolder mb-1">logout</a>
+      </div>
+      <!-- ends -->
+
+    </form>
+
+    <div id="message">
+      {% if message %}
+      <strong>{{ message }}</strong>
+      {% endif %}
+      <br>
+      <a href="{% url 'bankapp:home' %}" type="button" class="btn btn-light rounded-pill fw-bolder mt-2">Home</a>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  var common_values = {
+    alappuzha: ["Changanassery", "Vandanam", "Kalarcode"],
+    kollam: ["Pathanapuram", "Karunagapally", "Thodiyoor"],
+    eranakulam: ["Mattanchery", "Thoppumbady", "Kumbalangi"],
+    wayanad: ["Kalpetta", "Padinjarathara", "Meenangadi"],
+    thrissur: ["Cheruthurithy", "Vadakkekad", "Punnayurkkulam"]
+  }
+
+  function Changedropdownvalue(value) {
+    if (value.length == 0) {
+      document.getElementById("category").innerHTML = "<option></option>";
+    }
+    else {
+      var common_option = "";
+      for (categoryID in common_values[value]) {
+        common_option += "<option>" + common_values[value][categoryID] + "</option>"
+      }
+      document.getElementById("category").innerHTML = common_option
+
+    }
+
+  }
+
+</script>
+
+{% endblock %}
