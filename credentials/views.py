@@ -12,16 +12,16 @@ def register(request):
 
         if password==cpassword:
             if User.objects.filter(username=username).exists():
-                messages.info(request,"username is already taken")
+                messages.info(request,"username is already taken !!!")
                 return redirect('credentials:signup')
             
             else:
                 user=User.objects.create_user(username=username,password=password)
                 user.save()
-                messages.info(request,"registration completed")
+                messages.info(request,"registration completed !!!")
                 print("user created")    
         else:
-            messages.info(request,"password incorrect")
+            messages.info(request,"password incorrect !!!")
             return redirect('credentials:signup')
 
         return redirect('credentials:signin')   
@@ -40,7 +40,7 @@ def login(request):
             auth.login(request,user)
             return redirect('bankapp:application')
         else:
-            messages.info(request,"invalid username")
+            messages.info(request,"invalid username !!!")
             return redirect('credentials:signin')
     return render(request,"login.html")    
 

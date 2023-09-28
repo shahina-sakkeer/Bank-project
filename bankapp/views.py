@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render
-from django.contrib import auth
-from bankapp.forms import ApplicationForm
-
+from django.contrib import auth,messages
+from .forms import ApplicationForm
 
 # Create your views here.
 
@@ -9,11 +8,14 @@ def demo(request):
     return render(request,"index.html")
 
 def form_view(request):
-    message = None
     if request.method == 'POST':
-        print("submitted")
-        message = "Your application has been accepted!!!"
-    return render(request,"home.html",{"message":message})   
+        form = ApplicationForm(request.POST)
+        if form.is_valid():
+            messages.success(request, 'Application Accepted !!!')
+            return redirect('bankapp:forms')
+    else:
+        form = ApplicationForm()
+    return render(request, 'home.html', {'form': form})
 
 
 def newdemo(request):

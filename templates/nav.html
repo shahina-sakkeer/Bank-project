@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
   <link rel="stylesheet" href="{% static 'styles/form.css' %}">
   <link rel="stylesheet" href="{% static 'styles/materials.css'%}">
+  <link rel="stylesheet" href="{% static 'styles/application.css'%}">
   <!-- owl stylesheets -->
   <link rel="stylesheet" href="{% static 'styles/owl.carousel.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
@@ -59,6 +60,13 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'bankapp:home' %}">Home</a>
           </li>
+          {% if user.is_authenticated %}
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'bankapp:signout' %}">LOGOUT</a>
+          </li>
+
+          {% else %}
 
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'credentials:signin' %}">LOGIN</a>
@@ -67,6 +75,8 @@
             <a class="nav-link active" aria-current="page" href="{% url 'credentials:signup' %}">REGISTER</a>
           </li>
 
+          {% endif %}
+
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -74,15 +84,15 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item"
-                  href="https://locations.federalbank.co.in/location/kerala/alappuzha">Alappuzha</a></li>
-              <li><a class="dropdown-item" href="https://locations.federalbank.co.in/location/kerala/kollam">Kollam</a>
+                  href="https://en.wikipedia.org/wiki/Alappuzha">Alappuzha</a></li>
+              <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kollam_district">Kollam</a>
               </li>
               <li><a class="dropdown-item"
-                  href="https://locations.federalbank.co.in/location/kerala/ernakulam">Eranakulam</a></li>
+                  href="https://en.wikipedia.org/wiki/Ernakulam">Eranakulam</a></li>
               <li><a class="dropdown-item"
-                  href="https://locations.federalbank.co.in/location/kerala/wayanad">Wayanad</a></li>
+                  href="https://en.wikipedia.org/wiki/Wayanad_district">Wayanad</a></li>
               <li><a class="dropdown-item"
-                  href="https://locations.federalbank.co.in/location/kerala/thrissur">Thrissur</a></li>
+                  href="https://en.wikipedia.org/wiki/Thrissur">Thrissur</a></li>
             </ul>
           </li>
 
