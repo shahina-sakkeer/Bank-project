@@ -34,7 +34,7 @@ MATERIALS_PROVIDED_CHOICES = [
 
 class ApplicationForm(forms.Form):
     name = forms.CharField(max_length=100, label='Name')
-    dob = forms.DateField(label='Date of Birth')
+    dob = forms.DateField(label='Date of Birth',widget=forms.DateInput(attrs={'type': 'date'}))
     age = forms.IntegerField(label='Age')
     gender = forms.ChoiceField(choices=[('Male', 'Male'), ('Female', 'Female')], widget=forms.RadioSelect, label='Gender')
     phone_number = forms.CharField(max_length=15, label='Phone Number')
